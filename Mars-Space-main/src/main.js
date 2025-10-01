@@ -113,7 +113,7 @@ function login() {
 
         let findStudent = studets.find(stud => loginValue === stud.login && passwordValue === stud.password)
 
-        if (loginInput.value === '' || passwordInput === '') {
+        if (loginInput.value === '' || passwordInput.value === '') {
             loginInput.style.border = `2px solid red`
             passwordInput.style.border = `2px solid red`
             setTimeout(() => {
@@ -127,10 +127,17 @@ function login() {
             passwordInput.value = ''
             localStorage.setItem(`currentUser`, JSON.stringify(findStudent))
             notification(`Добро пожаловать ${findStudent.names} ${findStudent.surname}`, `green`, `dashboard.html`)
-        } else {
-            console.log(`Пользователь ${loginValue} не найден`);
+        } else if (!findStudent) {
+            notification(`Пользователь ${loginValue} не найден или неверный пароль`, '#fc6736')
         }
     })
 }
-
 login()
+
+console.log(document.cookie);
+
+let debugg = (text) => {
+    console.log(text);
+}
+
+debugg(studets)
