@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.content {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 320px;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-right: 1px solid #e0e0e0;
+}
+
+/* Main content */
+.main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Top bar */
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-wrapper div {
+    background-color: #fff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.header-wrapper .subscribe-btn {
+    background: linear-gradient(90deg, #7c00ff, #00d2ff);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Map section */
+.map-section {
+    background-color: #e0f7fa;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-section img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* Extra cards */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+@media(max-width: 1000px) {
+    .sidebar {
+        display: none;
+    }
+
+    .right-banner {
+        display: none;
+    }
+}
+
+.skill {
+    color: rgb(255, 153, 0);
+}
+
+.course {
+    color: rgb(0, 136, 255);
+}
+
+.name {
+    color: rgb(255, 153, 0);
+}
+
+.SurName {
+    color: rgb(0, 136, 255);
+}
+
+.sidebarIcon {
+    width: 30px;
+}
+
+.sidebar-hrefs {
+    text-decoration: none;
+    color: #2f2f2f;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+    display: flex;
+    transition: 300ms all ease;
+}
+
+.sidebar-hrefs:hover {
+    transition: 300ms all ease;
+    background-color: #fc6736;
+    color: white;
+}
+
+.sidebar-hrefs:hover .sidebarIcon path {
+    fill: white;
+}
+
+.names-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    flex: 1 1 200px;
+    min-width: 200px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+    width: 100%;
+    padding: 15px;
+}
+
+.card-name {
+    width: 80%;
+    height: 300px;
+    border-radius: 6px;
+    background-color: #d1cfcf;
+}
+
+.name-banner {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+}
+
+.content-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-wrapper-1 {
+    display: flex;
+}
