@@ -4,7 +4,7 @@ let studets = [
         names: 'Elka ',
         surname: 'baxa',
         age: 14,
-        coins: 200,
+        coins: 247,
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbIJsL0hWezeqKR7JBTIkHY6xxrodjA-Ro3Q&s',
         position: 'bot',
         reyting: ' ⭐⭐⭐',
@@ -22,7 +22,7 @@ let studets = [
         names: 'pokemon ',
         surname: 'pikachu',
         age: 15,
-        coins: 68,
+        coins: 3268,
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPGrfzAnxt9DbQHHlBR6QKtH4fHFo1Ad4qWA&s',
         position: 'hardbot',
         reyting: ' ⭐⭐⭐⭐⭐',
@@ -40,7 +40,7 @@ let studets = [
         names: 'Anime ',
         surname: 'Sakura',
         age: 15,
-        coins: 200,
+        coins: 521,
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ19cvAmFbTSKjzkWnMGTGF3HiQDReEcdqJg&s',
         position: 'hardbot',
         reyting: ' ⭐⭐⭐⭐',
@@ -57,19 +57,23 @@ let studets = [
         names: 'Professor ',
         surname: 'Usmanov',
         age: 15,
-        coins: 1,
+        coins: 1123,
         img: 'https://i.pinimg.com/236x/29/7e/32/297e3222d70bf9fd149879712e8da1b5.jpg',
         position: 'EasyBot',
         reyting: ' ⭐',
         group: 2879,
         teacherName: 'TambiMasayev',
-        course: '1c ',
+        course: '1c',
         skills: 'html css js',
         login: 'usmanov07',
         password: 11111,
         energy: 230
     }
 ]
+
+if (!localStorage.getItem('students')) {
+    localStorage.setItem(`students`, JSON.stringify(studets))
+}
 
 function notification(text, color, href) {
     console.log(href);
@@ -103,6 +107,8 @@ function notification(text, color, href) {
 
 function login() {
 
+    let studentStorage = JSON.parse(localStorage.getItem(`students`))
+
     let loginInput = document.querySelector(`.login`)
     let passwordInput = document.querySelector(`.password`)
     let loginBtn = document.querySelector(`.loginBtn`)
@@ -111,7 +117,7 @@ function login() {
         let loginValue = loginInput.value
         let passwordValue = +passwordInput.value
 
-        let findStudent = studets.find(stud => loginValue === stud.login && passwordValue === stud.password)
+        let findStudent = studentStorage.find(stud => loginValue === stud.login && passwordValue === stud.password)
         if (loginInput.value === '' || passwordInput.value === '') {
             loginInput.style.border = `2px solid red`
             passwordInput.style.border = `2px solid red`
@@ -150,7 +156,7 @@ function login() {
         if (loginInput.value === '') {
             loginBtn.style.backgroundColor = `#F69E86`
         } else {
-            loginBtn.style.backgroundColor = ` #ef5f37 `
+            loginBtn.style.backgroundColor = ` #ef5f37`
         }
     })
 

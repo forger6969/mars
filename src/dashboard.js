@@ -29,4 +29,3 @@ homeBtn.addEventListener(`click`, () => {
     shopSection.style.display = `none`
     homeSection.style.display = `flex`
 })
-

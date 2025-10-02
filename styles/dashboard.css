@@ -302,4 +302,66 @@ body {
     padding-left: 310px;
     padding-right: 15px;
     padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.passwordEnterBox {
+    background-color: white;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    border-radius: 12px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 300ms all ease;
+}
+
+.passwordEnterBox.active {
+    transition: 300ms all ease;
+    width: 350px;
+    height: 200px;
+    opacity: 1;
+}
+
+.passwordEnterBox.active .content {
+    filter: brightness(50%);
+    color: red;
+}
+
+.closeBtn {
+    width: 50px;
+    position: relative;
+    right: -140px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.passwordShop {
+    background-color: #f5f5f5;
+    width: 250px;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid #a5a5a5;
+    padding-left: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.contunieBtnShop {
+    background-color: #fc6736;
+    width: 200px;
+    height: 36px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 30px;
 }
