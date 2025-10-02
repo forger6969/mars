@@ -331,7 +331,8 @@ body {
 
 .passwordEnterBox.active .content {
     filter: brightness(50%);
-    color: red;
+    width: 100%;
+    overflow: hidden;
 }
 
 .closeBtn {
@@ -364,4 +365,63 @@ body {
     font-weight: 500;
     font-size: 20px;
     margin-top: 30px;
+}
+
+.notification {
+    position: relative;
+    background: #333;
+    color: white;
+    border-radius: 8px;
+    margin: 8px 0;
+    width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+    min-height: 40px;
+    padding: 15px;
+    font-size: 14px;
+    transition: 300ms all ease;
+    cursor: pointer;
+}
+
+.notification.none {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.poloska {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 3px;
+    width: 100%;
+    background: #3498db;
+    animation: shrink 5s linear forwards;
+}
+
+@keyframes shrink {
+    from {
+        right: 0;
+        width: 100%;
+    }
+
+    to {
+        right: 100%;
+        width: 0;
+    }
+}
+
+.notificationsBox {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    width: 320px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow-y: auto;
+}
+
+.notificationsBox::-webkit-scrollbar {
+    display: none;
 }

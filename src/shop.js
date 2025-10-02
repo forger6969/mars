@@ -101,11 +101,50 @@ if (!localStorage.getItem('products')) {
     localStorage.setItem(`products`, JSON.stringify(products))
 }
 
-products.forEach((product, index) => {
-    let card = document.createElement(`div`)
-    card.classList = `card`
 
-    card.innerHTML = `
+function notification(text, color, href) {
+    console.log(href);
+    let notBox = document.querySelector(`.notificationsBox`)
+    let notElement = document.createElement(`div`)
+    notElement.classList = `notification`
+
+    notElement.innerHTML = `
+    <p>${text}</p>
+    <div class="poloska"></div>
+    `
+    notElement.classList.remove(`none`)
+    notBox.classList.remove(`none`)
+    notElement.style.backgroundColor = color
+
+    notBox.append(notElement)
+
+    setTimeout(() => {
+        notElement.classList.add(`none`)
+        setTimeout(() => {
+            notElement.remove()
+        }, 300);
+    }, 5000);
+
+    if (href) {
+        setTimeout(() => {
+            window.location.href = `../${href}`
+        }, 5000);
+    }
+}
+
+function renderProducts() {
+
+    let cardsWrapper = document.querySelector(`.shop-wrapper`)
+    cardsWrapper.innerHTML = ``
+    let productsStorage = JSON.parse(localStorage.getItem(`products`)) || []
+
+    productsStorage.forEach((product, index) => {
+
+
+        let card = document.createElement(`div`)
+        card.classList = `card`
+
+        card.innerHTML = `
      <div class="card">
           <img class="product-img" src="${product.img}" alt="">
           <p class="product-name">${product.product}</p>
@@ -117,14 +156,13 @@ products.forEach((product, index) => {
           <button data-index="${index}" class="buy-btn">buy></button>
         </div>
     `
-    let cardsWrapper = document.querySelector(`.shop-wrapper`)
-    cardsWrapper.append(card)
-})
+        cardsWrapper.append(card)
+    })
 
-let passwordCheck = false
-
-function passwordBox() {
 }
+
+renderProducts()
+
 
 let buyBtn = document.querySelectorAll(`.buy-btn`)
 
@@ -159,6 +197,7 @@ buyBtn.forEach(btn => {
                 let passwordValue = +passwordShop.value
 
                 if (passwordValue === currentUser.password) {
+                    notification(`Успешный заказ`, `green`)
                     console.log('Правольный пароль');
                     passwordCheck = true
                     passwordEnterBoxElement.classList.remove(`active`)
@@ -176,17 +215,19 @@ buyBtn.forEach(btn => {
                     console.log(allStudent);
 
                     let productsStorage = JSON.parse(localStorage.getItem(`products`)) || []
-
                     let prodcutsIndexStorage = productsStorage[index]
+                    prodcutsIndexStorage.count--
                     console.log(prodcutsIndexStorage);
-
                     currentUser.coins = TOTAL
+
+                    localStorage.setItem('products', JSON.stringify(productsStorage))
                     localStorage.setItem(`students`, JSON.stringify(allStudent))
                     localStorage.setItem(`currentUser`, JSON.stringify(currentUser))
                     infoRender()
+                    renderProducts()
                 } else {
                     console.log("Неверный пароль");
-                    passwordCheck = false
+                    notification(`Неверный пароль`, `red`)
                 }
             })
 
