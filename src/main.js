@@ -22,7 +22,7 @@ let studets = [
         names: 'pokemon ',
         surname: 'pikachu',
         age: 15,
-        coins: 10,
+        coins: 68,
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPGrfzAnxt9DbQHHlBR6QKtH4fHFo1Ad4qWA&s',
         position: 'hardbot',
         reyting: ' ⭐⭐⭐⭐⭐',
@@ -129,15 +129,15 @@ function login() {
             notification(`Добро пожаловать ${findStudent.names} ${findStudent.surname}`, `green`, `dashboard.html`)
         } else if (!findStudent) {
             notification(`Пользователь ${loginValue} не найден или неверный пароль`, '#fc6736')
+
+            loginInput.style.border = `2px solid #fc6736`
+            passwordInput.style.border = `2px solid #fc6736`
+            setTimeout(() => {
+                loginInput.style.border = `1px solid #75757530`
+                passwordInput.style.border = `1px solid #75757530`
+            }, 5000);
         }
     })
 }
-login()
 
-console.log(document.cookie);
-
-let debugg = (text) => {
-    console.log(text);
-}
-
-debugg(studets)
+login() 
