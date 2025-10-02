@@ -112,7 +112,6 @@ function login() {
         let passwordValue = +passwordInput.value
 
         let findStudent = studets.find(stud => loginValue === stud.login && passwordValue === stud.password)
-
         if (loginInput.value === '' || passwordInput.value === '') {
             loginInput.style.border = `2px solid red`
             passwordInput.style.border = `2px solid red`
@@ -136,6 +135,37 @@ function login() {
                 loginInput.style.border = `1px solid #75757530`
                 passwordInput.style.border = `1px solid #75757530`
             }, 5000);
+        }
+    })
+
+    loginInput.addEventListener(`input`, () => {
+        if (loginInput.value === '') {
+            loginBtn.style.backgroundColor = `#F69E86`
+        } else {
+            loginBtn.style.backgroundColor = ` #ef5f37 `
+        }
+    })
+
+    passwordInput.addEventListener(`input`, () => {
+        if (loginInput.value === '') {
+            loginBtn.style.backgroundColor = `#F69E86`
+        } else {
+            loginBtn.style.backgroundColor = ` #ef5f37 `
+        }
+    })
+
+    let passwordHide = document.querySelector(`.password-hide`)
+
+    passwordHide.addEventListener(`click`, () => {
+        let attribute = passwordInput.getAttribute(`type`)
+        if (attribute === `password`) {
+            passwordInput.setAttribute(`type`, `text`)
+            console.log('type text');
+            passwordHide.src = `./images/eye-svgrepo-com.svg`
+        } else if (attribute === `text`) {
+            passwordInput.setAttribute(`type`, `password`)
+            console.log('type password');
+            passwordHide.src = `./images/eye-slash-svgrepo-com.svg`
         }
     })
 }

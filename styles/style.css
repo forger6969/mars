@@ -156,6 +156,7 @@
     font-size: 20px;
     margin-top: 20px;
     transition: 300ms all ease;
+    cursor: pointer;
 }
 
 .loginBtn:hover {
@@ -219,4 +220,22 @@
 
 .notificationsBox::-webkit-scrollbar {
     display: none;
+}
+
+.password-hide {
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    position: absolute;
+    cursor: pointer;
+    bottom: 123px;
+    right: 580px;
+}
+
+.password-hide img {
+    width: 100%;
+}
+
+.login {
+    position: relative;
 }
