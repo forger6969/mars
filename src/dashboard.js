@@ -26,7 +26,7 @@ let shopSection = document.querySelector(`.shop-section`)
 let homeBtn = document.getElementById(`home`)
 
 shopBtn.addEventListener(`click`, () => {
-    window.location.href = `../shop.html`
+    window.location.href = `./shop.html`
 })
 
 homeBtn.addEventListener(`click`, () => {
