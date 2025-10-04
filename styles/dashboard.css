@@ -4,7 +4,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Inter';
 }
 
 .content {
@@ -178,6 +180,7 @@ body {
 
 .main-wrapper-1 {
     display: flex;
+    flex-direction: column;
 }
 
 .name {
@@ -424,4 +427,58 @@ body {
 
 .notificationsBox::-webkit-scrollbar {
     display: none;
+}
+
+.group-card {
+    background-color: white;
+    width: 300px;
+    height: 150px;
+    position: absolute;
+    top: 460px;
+    left: 400px;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.group-item,
+.reyting-item {
+    font-weight: 600;
+    font-size: 23px;
+    color: #2f2f2f;
+    padding-bottom: 5px;
+}
+
+.group {
+    font-weight: 500;
+    font-size: 20px;
+    color: #333;
+    border-bottom: 2px solid #a5a5a5;
+    padding-bottom: 10px;
+}
+
+.group span {
+    color: #2f2f2f;
+}
+
+.reyting-text {
+    font-weight: 500;
+    font-size: 20px;
+    color: #333;
+}
+
+.reyting-text span {
+    color: #2f2f2f;
+}
+
+.log-out-link img {
+    width: 20px;
+}
+
+.log-out-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: black;
+    font-weight: 500;
+    text-decoration: underline;
 }

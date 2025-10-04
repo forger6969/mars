@@ -97,8 +97,8 @@ let products = [
     }
 ]
 
-if (!localStorage.getItem('products')) {
-    localStorage.setItem(`products`, JSON.stringify(products))
+if (!localStorage.getItem('productsShop')) {
+    localStorage.setItem(`productsShop`, JSON.stringify(products))
 }
 
 
@@ -136,7 +136,7 @@ function renderProducts() {
 
     let cardsWrapper = document.querySelector(`.shop-wrapper`)
     cardsWrapper.innerHTML = ``
-    let productsStorage = JSON.parse(localStorage.getItem(`products`)) || []
+    let productsStorage = JSON.parse(localStorage.getItem(`productsShop`)) || []
 
     productsStorage.forEach((product, index) => {
 
@@ -145,17 +145,18 @@ function renderProducts() {
         card.classList = `card`
 
         card.innerHTML = `
-     <div class="card">
+          <div class="card">
           <img class="product-img" src="${product.img}" alt="">
           <p class="product-name">${product.product}</p>
           <div class="price-box">
-            <p class="price-text"><span class="price">${product.price}</span><img class="coin-card"
+          <p class="price-text"><span class="price">${product.price}</span><img class="coin-card"
                 src="./images/Coin.8a6f0644.svg" alt=""></p>
-            <p class="product-count"><span class="count">${product.count}</span> шт осталось</p>
+          <p class="product-count"><span class="count">${product.count}</span> шт осталось</p>
           </div>
           <button data-index="${index}" class="buy-btn">buy></button>
-        </div>
+          </div>
     `
+
         cardsWrapper.append(card)
     })
 
@@ -217,6 +218,7 @@ buyBtn.forEach(btn => {
                     let productsStorage = JSON.parse(localStorage.getItem(`products`)) || []
                     let prodcutsIndexStorage = productsStorage[index]
                     prodcutsIndexStorage.count--
+                    console.log(prodcutsIndexStorage);
                     console.log(prodcutsIndexStorage);
                     currentUser.coins = TOTAL
 
