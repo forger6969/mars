@@ -100,7 +100,7 @@ function notification(text, color, href) {
 
     if (href) {
         setTimeout(() => {
-            window.location.href = `../${href}`
+            window.location.href = `./${href}`
         }, 5000);
     }
 }
@@ -131,8 +131,7 @@ function login() {
             loginInput.value = ''
             passwordInput.value = ''
             localStorage.setItem(`currentUser`, JSON.stringify(findStudent))
-            notification(`Добро пожаловать ${findStudent.names} ${findStudent.surname}`, `green`,)
-            window.location.href = `./dashboard.html`
+            notification(`Добро пожаловать ${findStudent.names} ${findStudent.surname}`, `green`, `dashboard.html`)
         } else if (!findStudent) {
             notification(`Пользователь ${loginValue} не найден или неверный пароль`, '#fc6736')
 
