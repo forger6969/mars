@@ -181,7 +181,9 @@ buyBtn.forEach(btn => {
 
 
         if (TOTAL < 0) {
-            alert(`Вам не хватает ${TOTAL}`)
+
+            notification(`Вам нехватает ${Math.abs(TOTAL)} coin's`, `red`)
+            
         } else if (TOTAL >= 0) {
             passwordEnterBoxElement.classList.add(`active`)
 
