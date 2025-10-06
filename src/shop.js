@@ -132,17 +132,45 @@ function notification(text, color, href) {
     }
 }
 
-function renderProducts() {
+function renderProducts(prod) {
 
+    let productsStorage = JSON.parse(localStorage.getItem(`productsShop`)) || []
     let cardsWrapper = document.querySelector(`.shop-wrapper`)
     cardsWrapper.innerHTML = ``
-    let productsStorage = JSON.parse(localStorage.getItem(`productsShop`)) || []
 
-    productsStorage.forEach((product, index) => {
+    if (prod) {
+        cardsWrapper.innerHTML = ``
+
+        prod.forEach((product) => {
+            let card = document.createElement(`div`)
+            card.classList = `card`
+            let index = productsStorage.indexOf(product)
+            console.log(index);
+
+            card.innerHTML = `
+          <div class="card">
+          <img class="product-img" src="${product.img}" alt="">
+          <p class="product-name">${product.product}</p>
+          <div class="price-box">
+          <p class="price-text"><span class="price">${product.price}</span><img class="coin-card"
+                src="./images/Coin.8a6f0644.svg" alt=""></p>
+          <p class="product-count"><span class="count">${product.count}</span> шт осталось</p>
+          </div>
+          <button data-index="${index}" class="buy-btn">buy></button>
+          </div>
+    `
+            cardsWrapper.append(card)
+        })
+
+        return
+    }
 
 
+    productsStorage.forEach((product) => {
         let card = document.createElement(`div`)
         card.classList = `card`
+        let index = productsStorage.indexOf(product)
+        console.log(index);
 
         card.innerHTML = `
           <div class="card">
@@ -156,7 +184,6 @@ function renderProducts() {
           <button data-index="${index}" class="buy-btn">buy></button>
           </div>
     `
-
         cardsWrapper.append(card)
     })
 
@@ -183,7 +210,7 @@ buyBtn.forEach(btn => {
         if (TOTAL < 0) {
 
             notification(`Вам нехватает ${Math.abs(TOTAL)} coin's`, `red`)
-            
+
         } else if (TOTAL >= 0) {
             passwordEnterBoxElement.classList.add(`active`)
 
@@ -262,3 +289,13 @@ function infoRender() {
 }
 
 infoRender()
+
+let searchInput = document.getElementById(`search`)
+searchInput.addEventListener(`input`, () => {
+
+    let searchValue = searchInput.value.toLowerCase().trim()
+    console.log(searchValue);
+
+    let filterProducts = products.filter(filter => filter.product.toLowerCase().trim().includes(searchValue))
+    renderProducts(filterProducts)
+})

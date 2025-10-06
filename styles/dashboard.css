@@ -304,7 +304,7 @@ body {
     gap: 20px;
     padding-left: 310px;
     padding-right: 15px;
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 50px;
 }
 
@@ -481,4 +481,17 @@ body {
     color: black;
     font-weight: 500;
     text-decoration: underline;
+}
+
+#search {
+    background-color: #2f2f2f;
+    width: 300px;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 19px;
+    margin-left: 310px;
+    margin-top: 100px;
+    padding-left: 10px;
 }
